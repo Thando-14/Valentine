@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  overflow:hidden;
+  color:white;
+}
+
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:18px;
+  animation:floatUp linear forwards;
+  opacity:0.7;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-110vh);}
+}
+
+.container{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
+  padding:35px;
+  border-radius:20px;
+  max-width:420px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.25);
+  z-index:2;
+}
+
+h1{
+  font-family:'Great+Vibes',cursive;
+  font-size:3rem;
+}
+
+.buttons{
+  margin-top:25px;
+  position:relative;
+  height:130px;
+}
+
+button{
+  padding:12px 22px;
+  border:none;
+  border-radius:40px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+#yesBtn{
+  background:white;
+  color:#ff4b7d;
+  font-weight:600;
+}
+
+#noBtn{
+  position:absolute;
+  background:#ff4b7d;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>My Love ❤️</h1>
+
+<p>
+From the moment you came into my life everything became brighter.
+You are my happiness, my peace, and my favorite person in this world.
+</p>
+
+<h2>Will you be my Valentine? 💌</h2>
+
+<div class="buttons">
+<button id="yesBtn">Yes 😭💖</button>
+<button id="noBtn">No 🙈</button>
+</div>
+
+</div>
+
+<script>
+/* floating hearts */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(4+Math.random()*3)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),7000);
+}
+setInterval(createHeart,400);
+
+/* no button runs away */
+const noBtn=document.getElementById("noBtn");
+let scale=1;
+
+noBtn.addEventListener("mouseover",()=>{
+  const x=Math.random()*250;
+  const y=Math.random()*90;
+  scale-=0.1;
+  if(scale<0.4) scale=0.4;
+  noBtn.style.left=x+"px";
+  noBtn.style.top=y+"px";
+  noBtn.style.transform=`scale(${scale})`;
+});
+
+/* YES button → go to new page */
+document.getElementById("yesBtn").addEventListener("click",()=>{
+  window.location.href="yes.html";
+});
+</script>
+
+</body>
+</html>
+
+

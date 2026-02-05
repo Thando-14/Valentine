@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Are Valentines 💘</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ff4b7d,#ff758c);
+  overflow:hidden;
+  color:white;
+}
+
+.container{
+  padding:40px;
+}
+
+h1{
+  font-family:'Great Vibes',cursive;
+  font-size:3.5rem;
+}
+
+.confetti{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:white;
+  top:50%;
+  left:50%;
+  animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+  to{
+    transform:translate(var(--x),var(--y)) rotate(720deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Thank you for making me the happiest woman alive ❤️</h1>
+<h2>I love you Asanda💘</h2>
+</div>
+
+<script>
+for(let i=0;i<120;i++){
+  const confetti=document.createElement("div");
+  confetti.className="confetti";
+  confetti.style.setProperty('--x',(Math.random()*600-300)+'px');
+  confetti.style.setProperty('--y',(Math.random()*600-300)+'px');
+  document.body.appendChild(confetti);
+  setTimeout(()=>confetti.remove(),1000);
+}
+</script>
+
+</body>
+</html>
